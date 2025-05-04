@@ -114,25 +114,63 @@ class list{
         }
     
 };
-void oprastion(list& ll){
-    
-
-}
 
 int main(){
     list ll;
     int opt;
     int val,pos,se;
-    cout<<"1. create complet link list"<<endl<<"2. push only fornt"<<endl<<"3. push on back"<<endl<<"4. pop back"<<endl<<"5. pop front"<<endl<<"6. insert in middle"<<endl<<"7. search in link list";
+    string str;
+    
+    do{
+        cout<<"1. create complet link list"<<endl<<"2. push only fornt"<<endl<<"3. push on back"<<endl<<"4. pop back"<<endl<<"5. pop front"<<endl<<"6. insert in middle"<<endl<<"7. search in link list"<<endl<<"8. exit"<<endl;
     cout<<"select one: ";
     cin>>opt;
     if(opt == 1){
-        oprastion(ll);
+        int num;
+        cout<<"how many elements in there link list: ";
+        cin>>num;
+        for(int i = 0;i < num;i++){
+            ll.push_front(i);
+        }
+    }else if(opt == 2){
+        int p;
+        cout<<"Enter the number you push:";
+        cin>>p;
+        ll.push_front(p);
+    }else if(opt == 3){
+        int p;
+        cout<<"Enter the number you push_back:";
+        cin>>p;
+        ll.push_back(p);
+    }else if(opt == 4){
+        int p;
+        cout<<"Enter the number you pop_back:";
+        cin>>p;
+        ll.pop_back(p);
+    }else if(opt == 5){
+        int p;
+        cout<<"Enter the number you pop:";
+        cin>>p;
+        ll.pop_front(p);
+    }else if(opt == 6){
+        int p,pos;
+        cout<<"Enter the number insert middle and there positiion:";
+        cin>>p>>pos;
+        ll.insert(p,pos);
+    }else if(opt == 7){
+        int key;
+        cout<<"Enter the key:";
+        cin>>key;
+        int ans = ll.search(key);
+        cout<<"your search idx is: "<<ans;
     }
-
-
-
-
-
+    cout<<endl;
+    cout<<"you want to print your link list: ";
+    cin>>str;
+    if(str == "yes"){
+        cout<<"your link list is: "<<endl;
+    ll.printll();
+    }
+    }while(opt != 8);
 return 0;
 }
