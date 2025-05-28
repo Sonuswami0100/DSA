@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<list>
 using namespace std;
 class stack{
     vector<int> v;
@@ -22,6 +23,29 @@ class stack{
         }
     }
 };
+class linkeStack{
+    list<int> ll;
+    public:
+    void pushl(int val){
+        ll.push_front(val);
+    }
+    void popl(){
+        ll.pop_front();
+    }
+    int topl(){
+        return ll.front();
+    }
+    bool emptyl(){
+        return ll.size() == 0;
+    }
+    void print(){
+        for(int val : ll){
+            cout<<val<<"-> ";
+        }
+        cout<<endl;
+    }
+
+};
 int main(){
     stack s;
     s.push(1);
@@ -34,5 +58,17 @@ int main(){
     cout<<"top element on stack => "<<s.top()<<endl;
     cout<<"after the pop element: "<<endl;
     s.print();
-return 0;
+    linkeStack ll;
+    ll.pushl(1);
+    ll.pushl(2);
+    ll.pushl(3);
+    ll.pushl(4);
+    ll.pushl(5);
+    ll.print();
+    ll.popl();
+    cout<<endl;
+    cout<<"top element on link list => "<<ll.topl()<<endl;
+    cout<<"after the pop element: "<<endl;
+    ll.print();
+    return 0;
 }
